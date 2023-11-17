@@ -20,7 +20,7 @@ function ListView() {
       <p className="text-text-grey text-xs mt-1 mb-5">
         Select and browse your project image and start experimenting
       </p>
-      <div className="flex flex-col flex-1 h-full">
+      <div className="flex flex-col flex-1 h-full max-h-full">
         <Preview />
         <section className="flex gap-x-4 h-72">
           {!!data
