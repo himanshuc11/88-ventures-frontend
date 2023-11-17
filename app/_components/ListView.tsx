@@ -31,7 +31,7 @@ function ListView() {
       </p>
       <div className="flex flex-col flex-1 h-full max-h-full">
         <Preview url={currentImage} />
-        <section className="flex gap-x-4 h-72">
+        <section className="flex gap-x-4 h-72 bg-middle-blue">
           {!!data
             ? data.map((project) => (
                 <Project {...project} key={project.id} setImage={handleClick} />
