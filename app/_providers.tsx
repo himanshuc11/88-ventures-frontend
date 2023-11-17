@@ -1,7 +1,7 @@
 "use client";
 import { useContext, createContext, useState } from "react";
 import { ReactNode } from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 type FileProviderProps = {
   file: File | null;

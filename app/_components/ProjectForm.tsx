@@ -10,7 +10,7 @@ function ProjectForm() {
   };
 
   return (
-    <aside className="px-7 py-5 border-r border-primary-white max-w-[350px]">
+    <section className="px-7 py-5 border-r border-primary-white max-w-[350px]">
       <h3 className="text-text-blue text-base">Start a new Project</h3>
       <p className="text-text-grey text-xs mt-1 mb-5">
         Select and browse your product image and start experimenting
@@ -35,7 +35,7 @@ function ProjectForm() {
       <button className="rounded-lg py-2.5 px-3 text-white bg-bold-blue mt-8">
         Create new project
       </button>
-    </aside>
+    </section>
   );
 }
 
