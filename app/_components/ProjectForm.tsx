@@ -1,4 +1,15 @@
+"use client";
+import { useState } from "react";
+import Uploader from "@/app/_components/Uploader";
+
 function ProjectForm() {
+  const [file, setFile] = useState<File | null>(null);
+  const [name, setName] = useState<string>("");
+
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
   return (
     <aside className="px-7 py-5 border-r border-primary-white max-w-[330px]">
       <h3 className="text-text-blue text-base">Start a new Project</h3>
@@ -10,19 +21,17 @@ function ProjectForm() {
         Step 1<span className="text-[#b91c1c]">*</span>
       </label>
       <input
+        value={name}
         id="step1"
         placeholder="Your Project name"
         className="text-light-grey w-full rounded-lg py-2.5 px-3 border border-primary-white"
+        onChange={handleNameChange}
       />
 
-      <label htmlFor="step2" className="text-light-grey text-xs">
+      <label htmlFor="step2" className="text-light-grey text-xs block mt-5">
         Step 2<span className="text-[#b91c1c]">*</span>
       </label>
-      <input
-        id="step2"
-        placeholder="Your Project name"
-        className="text-light-grey w-full rounded-lg py-2.5 px-3 border border-primary-white"
-      />
+      <Uploader setFile={setFile} />
     </aside>
   );
 }
