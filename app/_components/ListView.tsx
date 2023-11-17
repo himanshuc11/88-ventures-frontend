@@ -1,5 +1,6 @@
 "use client";
 import useProjects from "@/app/_hooks/useProjects";
+import Project from "./Project";
 
 function ListView() {
   const { data, error } = useProjects();
@@ -18,6 +19,11 @@ function ListView() {
       <p className="text-text-grey text-xs mt-1 mb-5">
         Select and browse your project image and start experimenting
       </p>
+      <section className="flex gap-x-4">
+        {!!data
+          ? data.map((project) => <Project {...project} key={project.id} />)
+          : null}
+      </section>
     </section>
   );
 }
