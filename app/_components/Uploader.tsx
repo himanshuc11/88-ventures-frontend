@@ -1,15 +1,14 @@
 import { FileUploader } from "react-drag-drop-files";
+import { useFile } from "@/app/_providers";
 import Folder from "./Icons/Folder";
 
 const FILE_TYPES = ["JPG", "PNG", "GIF"];
 
-type Props = {
-  setFile: (file: File) => void;
-};
+function Uploader() {
+  const { setFile } = useFile();
 
-function Uploader(props: Props) {
   const handleChange = (file: File) => {
-    props.setFile(file);
+    setFile?.(file);
   };
 
   return (

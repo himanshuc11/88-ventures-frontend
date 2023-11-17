@@ -3,7 +3,6 @@ import { useState } from "react";
 import Uploader from "@/app/_components/Uploader";
 
 function ProjectForm() {
-  const [file, setFile] = useState<File | null>(null);
   const [name, setName] = useState<string>("");
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,7 +30,7 @@ function ProjectForm() {
       <label htmlFor="step2" className="text-light-grey text-xs block mt-5">
         Step 2<span className="text-[#b91c1c]">*</span>
       </label>
-      <Uploader setFile={setFile} />
+      <Uploader />
 
       <button className="rounded-lg py-2.5 px-3 text-white bg-bold-blue mt-8">
         Create new project
