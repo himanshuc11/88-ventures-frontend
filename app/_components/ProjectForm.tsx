@@ -1,12 +1,31 @@
 "use client";
 import { useState } from "react";
+import useAddProject from "@/app/_hooks/useAddProject";
+import { useFile } from "@/app/_providers";
 import Uploader from "@/app/_components/Uploader";
 
 function ProjectForm() {
   const [name, setName] = useState<string>("");
+  const { file } = useFile();
+  const { mutateAsync: addProject } = useAddProject();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
+  };
+
+  const handleSubmit = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    if (file && name) {
+      await addProject({
+        file,
+        name,
+      });
+      setName("");
+    } else {
+      alert("File and name is required");
+    }
   };
 
   return (
@@ -32,7 +51,10 @@ function ProjectForm() {
       </label>
       <Uploader />
 
-      <button className="rounded-lg py-2.5 px-3 text-white bg-bold-blue mt-8">
+      <button
+        className="rounded-lg py-2.5 px-3 text-white bg-bold-blue mt-8"
+        onClick={handleSubmit}
+      >
         Create new project
       </button>
     </section>
