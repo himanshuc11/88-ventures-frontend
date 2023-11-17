@@ -14,7 +14,7 @@ function Project(props: Props) {
 
   return (
     <div
-      className="gap-4 p-4 rounded-lg shadow-xl w-52 h-52 cursor-pointer"
+      className="gap-4 p-4 rounded-lg shadow-xl w-52 h-52 min-w-[208px] cursor-pointer"
       onClick={handleClick}
     >
       <div className="w-full h-28 flex justify-center relative">
