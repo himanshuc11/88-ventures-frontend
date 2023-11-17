@@ -2,9 +2,18 @@
 import useProjects from "@/app/_hooks/useProjects";
 import Project from "@/app/_components/Project";
 import Preview from "@/app/_components/Preview";
+import { useFile } from "@/app/_providers";
+import { useState } from "react";
 
 function ListView() {
   const { data, error } = useProjects();
+  const [currentImage, setCurrentImage] = useState("");
+  const { setFile } = useFile();
+
+  const handleClick = (img: string) => {
+    setFile?.(null);
+    setCurrentImage(img);
+  };
 
   if (error) {
     return (
@@ -21,10 +30,12 @@ function ListView() {
         Select and browse your project image and start experimenting
       </p>
       <div className="flex flex-col flex-1 h-full max-h-full">
-        <Preview />
+        <Preview url={currentImage} />
         <section className="flex gap-x-4 h-72">
           {!!data
-            ? data.map((project) => <Project {...project} key={project.id} />)
+            ? data.map((project) => (
+                <Project {...project} key={project.id} setImage={handleClick} />
+              ))
             : null}
         </section>
       </div>

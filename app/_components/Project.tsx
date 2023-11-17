@@ -2,14 +2,21 @@ import Image from "next/image";
 import type { ServerProject } from "@/app/_utils/types";
 import { format } from "date-fns";
 
-type Props = ServerProject;
+type Props = ServerProject & {
+  setImage: (img: string) => void;
+};
+
 function Project(props: Props) {
   if (!props) return null;
 
   const dateObj = new Date(props.createdAt);
+  const handleClick = () => props.setImage(props.image);
 
   return (
-    <div className="gap-4 p-4 rounded-lg shadow-xl w-52 h-52">
+    <div
+      className="gap-4 p-4 rounded-lg shadow-xl w-52 h-52 cursor-pointer"
+      onClick={handleClick}
+    >
       <div className="w-full h-28 flex justify-center relative">
         <Image unoptimized src={props.image} alt={`${props.name}'s `} fill />
       </div>
