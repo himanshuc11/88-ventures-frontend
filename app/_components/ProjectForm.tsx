@@ -11,7 +11,7 @@ function ProjectForm() {
   };
 
   return (
-    <aside className="px-7 py-5 border-r border-primary-white max-w-[330px]">
+    <aside className="px-7 py-5 border-r border-primary-white max-w-[350px]">
       <h3 className="text-text-blue text-base">Start a new Project</h3>
       <p className="text-text-grey text-xs mt-1 mb-5">
         Select and browse your product image and start experimenting
@@ -32,6 +32,10 @@ function ProjectForm() {
         Step 2<span className="text-[#b91c1c]">*</span>
       </label>
       <Uploader setFile={setFile} />
+
+      <button className="rounded-lg py-2.5 px-3 text-white bg-bold-blue mt-8">
+        Create new project
+      </button>
     </aside>
   );
 }
